@@ -1,9 +1,9 @@
 <?php
-class Route{
+class Bus{
     private $conn;
-    private $table_name = "routes";
+    private $table_name = "buses";
 
-    public $route_id;
+    public $bus_id;
     public $number;
 
     public function __construct($db){
@@ -12,7 +12,7 @@ class Route{
 
     function search_all($keywords){
 
-        $query = "SELECT DISTINCT * FROM routes";
+        $query = "SELECT DISTINCT * FROM buses";
 
         $stmt = $this->conn->prepare($query);
 
@@ -30,7 +30,7 @@ class Route{
 
     function search_by_id($keywords){
 
-        $query = "SELECT * FROM routes WHERE route_id=1";
+        $query = "SELECT * FROM buses WHERE bus_id=1";
 
         $stmt = $this->conn->prepare($query);
 
@@ -48,7 +48,7 @@ class Route{
 
     function search_by_number($keywords){
 
-        $query = "SELECT * FROM routes WHERE  number LIKE '%18%'";
+        $query = "SELECT DISTINCT * FROM buses WHERE number LIKE '%18%'";
 
         $stmt = $this->conn->prepare($query);
 
