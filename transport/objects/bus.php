@@ -1,5 +1,6 @@
 <?php
-class Bus{
+class bus
+{
     private $conn;
     private $table_name = "buses";
 
@@ -10,25 +11,18 @@ class Bus{
         $this->conn = $db;
     }
 
-    function search_all($keywords){
+    function search_all(){
 
         $query = "SELECT DISTINCT * FROM buses";
 
         $stmt = $this->conn->prepare($query);
-
-        $keywords=htmlspecialchars(strip_tags($keywords));
-        $keywords = "%{$keywords}%";
-
-        $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
         return $stmt;
     }
 
-    function search_by_id($keywords){
+    public function search_by_id($keywords){
 
         $query = "SELECT * FROM buses WHERE bus_id=1";
 
@@ -38,8 +32,6 @@ class Bus{
         $keywords = "%{$keywords}%";
 
         $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
@@ -56,11 +48,8 @@ class Bus{
         $keywords = "%{$keywords}%";
 
         $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
         return $stmt;
-    }
-}
+    }}
