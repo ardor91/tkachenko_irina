@@ -10,9 +10,7 @@ $db = $database->getConnection();
 
 $route = new Route($db);
 
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
-
-$stmt = $route->search_all($keywords);
+$stmt = $route->search_all();
 $num = $stmt->rowCount();
 
 if($num>0){
