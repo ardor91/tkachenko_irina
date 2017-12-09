@@ -10,18 +10,11 @@ class Route{
         $this->conn = $db;
     }
 
-    function search_all($keywords){
+    function search_all(){
 
         $query = "SELECT DISTINCT * FROM routes";
 
         $stmt = $this->conn->prepare($query);
-
-        $keywords=htmlspecialchars(strip_tags($keywords));
-        $keywords = "%{$keywords}%";
-
-        $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
@@ -38,8 +31,6 @@ class Route{
         $keywords = "%{$keywords}%";
 
         $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
@@ -56,8 +47,6 @@ class Route{
         $keywords = "%{$keywords}%";
 
         $stmt->bindParam(1, $keywords);
-        $stmt->bindParam(2, $keywords);
-        $stmt->bindParam(3, $keywords);
 
         $stmt->execute();
 
