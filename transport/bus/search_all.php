@@ -10,9 +10,7 @@ $db = $database->getConnection();
 
 $bus = new Bus($db);
 
-$keywords=isset($_GET["s"]) ? $_GET["s"] : "";
-
-$stmt = $bus->search_all($keywords);
+$stmt = $bus->search_all();
 $num = $stmt->rowCount();
 
 if($num>0){
@@ -21,7 +19,6 @@ if($num>0){
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-
         $bus_item=array(
             "bus_id" => $bus_id,
             "number" => $number,
